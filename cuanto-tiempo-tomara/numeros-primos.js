@@ -1,5 +1,6 @@
 Number.prototype.isPrime = function() {
-    for (let i = 2; i < this / 2; i++) {
+    let raiz = Math.sqrt(this)
+    for (let i = 2; i <= raiz; i++) {
         if (this % i === 0) {
             return false;
         }
@@ -12,7 +13,7 @@ const start = performance.now();
 
 let primeCount = 0;
 let num = 2; // por razones matemáticas, 1 se considera primo
-while( primeCount < 1e4 ) {
+while( primeCount < 10000 ) {
     if( num.isPrime() ) {
         primeCount++;
     }
@@ -20,3 +21,4 @@ while( primeCount < 1e4 ) {
 }
 console.log(`The 10,000th prime number is ${num-1}`);
 console.log(`This took ${performance.now() - start} milliseconds to run`);
+
